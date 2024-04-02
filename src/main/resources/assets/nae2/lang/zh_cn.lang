@@ -19,6 +19,14 @@ item.nae2.storage_cell_fluid_1024k.name=§61024k§r-ME流体存储元件
 item.nae2.storage_cell_fluid_4096k.name=§e4096k§r-ME流体存储元件
 item.nae2.storage_cell_fluid_16384k.name=§a16384k§r-ME流体存储元件
 
+item.nae2.single_storage_cell_256k.name=§c256k§r-ME存储元件(单种类)
+item.nae2.single_storage_cell_1024k.name=§61024k§r-ME存储元件(单种类)
+item.nae2.single_storage_cell_4096k.name=§e4096k§r-ME存储元件(单种类)
+item.nae2.single_storage_cell_16384k.name=§a16384k§r-ME存储元件(单种类)
+item.nae2.single_storage_cell_fluid_256k.name=§c256k§r-ME流体存储元件(单种类)
+item.nae2.single_storage_cell_fluid_1024k.name=§61024k§r-ME流体存储元件(单种类)
+item.nae2.single_storage_cell_fluid_4096k.name=§e4096k§r-ME流体存储元件(单种类)
+item.nae2.single_storage_cell_fluid_16384k.name=§a16384k§r-ME流体存储元件(单种类)
 # Materials
 item.nae2.material.cell_part_void.name=ME虚空存储组件
 item.nae2.material.cell_part_256k.name=§c256k§r-ME存储组件

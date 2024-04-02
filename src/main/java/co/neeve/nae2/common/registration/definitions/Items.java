@@ -13,6 +13,8 @@ import co.neeve.nae2.common.items.VirtualPattern;
 import co.neeve.nae2.common.items.cells.DenseFluidCell;
 import co.neeve.nae2.common.items.cells.DenseItemCell;
 import co.neeve.nae2.common.items.cells.handlers.VoidCellHandler;
+import co.neeve.nae2.common.items.cells.singlecell.DenseSingleFluidCell;
+import co.neeve.nae2.common.items.cells.singlecell.DenseSingleItemCell;
 import co.neeve.nae2.common.items.cells.vc.VoidFluidCell;
 import co.neeve.nae2.common.items.cells.vc.VoidItemCell;
 import co.neeve.nae2.common.items.patternmultitool.ToolPatternMultiTool;
@@ -45,6 +47,15 @@ public class Items implements Definitions<IItemDefinition> {
 	private final IItemDefinition storageCellFluid4096K;
 	private final IItemDefinition storageCellFluid16384K;
 	private final IItemDefinition virtualPattern;
+	//单种类存储
+	private final IItemDefinition singlestorageCell256K;
+	private final IItemDefinition singlestorageCell1024K;
+	private final IItemDefinition singlestorageCell4096K;
+	private final IItemDefinition singlestorageCell16384K;
+	private final IItemDefinition singlestorageCellFluid256K;
+	private final IItemDefinition singlestorageCellFluid1024K;
+	private final IItemDefinition singlestorageCellFluid4096K;
+	private final IItemDefinition singlestorageCellFluid16384K;
 
 	public Items(Registry registry) {
 		this.virtualPattern = this.registerById(registry.item("virtual_pattern", VirtualPattern::new)
@@ -139,6 +150,54 @@ public class Items implements Definitions<IItemDefinition> {
 			.features(Features.DENSE_FLUID_CELLS)
 			.build());
 
+
+		this.singlestorageCell256K = this.registerById(registry.item("single_storage_cell_256k", () ->
+						new DenseSingleItemCell(Materials.MaterialType.CELL_PART_256K,
+								(int) Math.pow(2, 8)))
+				.features(Features.DENSE_CELLS)
+				.build());
+
+		this.singlestorageCell1024K = this.registerById(registry.item("single_storage_cell_1024k", () ->
+						new DenseSingleItemCell(Materials.MaterialType.CELL_PART_1024K,
+								(int) Math.pow(2, 10)))
+				.features(Features.DENSE_CELLS)
+				.build());
+
+		this.singlestorageCell4096K = this.registerById(registry.item("single_storage_cell_4096k", () ->
+						new DenseSingleItemCell(Materials.MaterialType.CELL_PART_4096K,
+								(int) Math.pow(2, 12)))
+				.features(Features.DENSE_CELLS)
+				.build());
+
+		this.singlestorageCell16384K = this.registerById(registry.item("single_storage_cell_16384k", () ->
+						new DenseSingleItemCell(Materials.MaterialType.CELL_PART_16384K,
+								(int) Math.pow(2, 14)))
+				.features(Features.DENSE_CELLS)
+				.build());
+
+		this.singlestorageCellFluid256K = this.registerById(registry.item("single_storage_cell_fluid_256k", () ->
+						new DenseSingleFluidCell(Materials.MaterialType.CELL_FLUID_PART_256K,
+								(int) Math.pow(2, 8)))
+				.features(Features.DENSE_FLUID_CELLS)
+				.build());
+
+		this.singlestorageCellFluid1024K = this.registerById(registry.item("single_storage_cell_fluid_1024k", () ->
+						new DenseSingleFluidCell(Materials.MaterialType.CELL_FLUID_PART_1024K,
+								(int) Math.pow(2, 10)))
+				.features(Features.DENSE_FLUID_CELLS)
+				.build());
+
+		this.singlestorageCellFluid4096K = this.registerById(registry.item("single_storage_cell_fluid_4096k", () ->
+						new DenseSingleFluidCell(Materials.MaterialType.CELL_FLUID_PART_4096K,
+								(int) Math.pow(2, 12)))
+				.features(Features.DENSE_FLUID_CELLS)
+				.build());
+
+		this.singlestorageCellFluid16384K = this.registerById(registry.item("single_storage_cell_fluid_16384k", () ->
+						new DenseSingleFluidCell(Materials.MaterialType.CELL_FLUID_PART_16384K,
+								(int) Math.pow(2, 14)))
+				.features(Features.DENSE_FLUID_CELLS)
+				.build());
 		registry.addBootstrapComponent((IPostInitComponent) r -> {
 			var items = AEApi.instance().definitions().items();
 			var cellDef = items.cell1k();
@@ -148,7 +207,11 @@ public class Items implements Definitions<IItemDefinition> {
 					this.storageCell1024K,
 					this.storageCell4096K,
 					this.storageCell16384K,
-					this.storageCellVoid
+					this.storageCellVoid,
+						this.singlestorageCell256K,
+						this.singlestorageCell1024K,
+						this.singlestorageCell4096K,
+						this.singlestorageCell16384K
 				});
 			}
 
@@ -159,7 +222,11 @@ public class Items implements Definitions<IItemDefinition> {
 					this.storageCellFluid1024K,
 					this.storageCellFluid4096K,
 					this.storageCellFluid16384K,
-					this.fluidStorageCellVoid
+					this.fluidStorageCellVoid,
+						this.singlestorageCellFluid256K,
+						this.singlestorageCellFluid1024K,
+						this.singlestorageCellFluid4096K,
+						this.singlestorageCellFluid16384K
 				});
 			}
 		});
@@ -237,4 +304,38 @@ public class Items implements Definitions<IItemDefinition> {
 	public IItemDefinition storageCellFluid16384K() {
 		return this.storageCellFluid16384K;
 	}
+
+	public IItemDefinition singlestorageCell256K() {
+		return this.singlestorageCell256K;
+	}
+
+	public IItemDefinition singlestorageCell1024K() {
+		return this.singlestorageCell1024K;
+	}
+
+	public IItemDefinition singlestorageCell4096K() {
+		return this.singlestorageCell4096K;
+	}
+
+	public IItemDefinition singlestorageCell16384K() {
+		return this.singlestorageCell16384K;
+	}
+
+	public IItemDefinition singlestorageCellFluid256K() {
+		return this.singlestorageCellFluid256K;
+	}
+
+	public IItemDefinition singlestorageCellFluid1024K() {
+		return this.singlestorageCellFluid1024K;
+	}
+
+	public IItemDefinition singlestorageCellFluid4096K() {
+		return this.singlestorageCellFluid4096K;
+	}
+
+	public IItemDefinition singlestorageCellFluid16384K() {
+		return this.singlestorageCellFluid16384K;
+	}
+
+
 }
