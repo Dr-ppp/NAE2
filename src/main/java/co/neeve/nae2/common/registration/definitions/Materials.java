@@ -33,10 +33,12 @@ public class Materials implements DamagedDefinitions<DamagedItemDefinition, Mate
 	private final IItemDefinition cellPart1024K;
 	private final IItemDefinition cellPart4096K;
 	private final IItemDefinition cellPart16384K;
+	private final IItemDefinition cellPartMax;
 	private final IItemDefinition cellFluidPart256K;
 	private final IItemDefinition cellFluidPart1024K;
 	private final IItemDefinition cellFluidPart4096K;
 	private final IItemDefinition cellFluidPart16384K;
+	private final IItemDefinition cellFluidPartMax;
 	private final NAEMaterial material;
 
 	public Materials(Registry registry) {
@@ -50,10 +52,12 @@ public class Materials implements DamagedDefinitions<DamagedItemDefinition, Mate
 		this.cellPart1024K = this.createMaterial(this.material, MaterialType.CELL_PART_1024K);
 		this.cellPart4096K = this.createMaterial(this.material, MaterialType.CELL_PART_4096K);
 		this.cellPart16384K = this.createMaterial(this.material, MaterialType.CELL_PART_16384K);
+		this.cellPartMax = this.createMaterial(this.material,MaterialType.CELL_PART_MAX);
 		this.cellFluidPart256K = this.createMaterial(this.material, MaterialType.CELL_FLUID_PART_256K);
 		this.cellFluidPart1024K = this.createMaterial(this.material, MaterialType.CELL_FLUID_PART_1024K);
 		this.cellFluidPart4096K = this.createMaterial(this.material, MaterialType.CELL_FLUID_PART_4096K);
 		this.cellFluidPart16384K = this.createMaterial(this.material, MaterialType.CELL_FLUID_PART_16384K);
+		this.cellFluidPartMax = this.createMaterial(this.material, MaterialType.CELL_FLUID_PART_MAX);
 	}
 
 	@NotNull
@@ -103,6 +107,9 @@ public class Materials implements DamagedDefinitions<DamagedItemDefinition, Mate
 	public IItemDefinition cellPart16384K() {
 		return this.cellPart16384K;
 	}
+	public IItemDefinition cellPartMax() {
+		return this.cellPartMax;
+	}
 
 	public IItemDefinition cellFluidPart256K() {
 		return this.cellFluidPart256K;
@@ -115,21 +122,24 @@ public class Materials implements DamagedDefinitions<DamagedItemDefinition, Mate
 	public IItemDefinition cellFluidPart4096K() {
 		return this.cellFluidPart4096K;
 	}
-
 	public IItemDefinition cellFluidPart16384K() {
 		return this.cellFluidPart16384K;
 	}
-
+	public IItemDefinition cellFluidPartMax() {
+		return this.cellFluidPartMax;
+	}
 	public enum MaterialType implements IModelProvider {
 		CELL_PART_VOID("cell_part_void", Features.VOID_CELLS),
 		CELL_PART_256K("cell_part_256k", Features.DENSE_CELLS),
 		CELL_PART_1024K("cell_part_1024k", Features.DENSE_CELLS),
 		CELL_PART_4096K("cell_part_4096k", Features.DENSE_CELLS),
 		CELL_PART_16384K("cell_part_16384k", Features.DENSE_CELLS),
+		CELL_PART_MAX("cell_part_max", Features.DENSE_CELLS),
 		CELL_FLUID_PART_256K("cell_part_fluid_256k", Features.DENSE_FLUID_CELLS),
 		CELL_FLUID_PART_1024K("cell_part_fluid_1024k", Features.DENSE_FLUID_CELLS),
 		CELL_FLUID_PART_4096K("cell_part_fluid_4096k", Features.DENSE_FLUID_CELLS),
-		CELL_FLUID_PART_16384K("cell_part_fluid_16384k", Features.DENSE_FLUID_CELLS);
+		CELL_FLUID_PART_16384K("cell_part_fluid_16384k", Features.DENSE_FLUID_CELLS),
+		CELL_FLUID_PART_MAX("cell_part_fluid_max", Features.DENSE_FLUID_CELLS);
 		private static Int2ObjectLinkedOpenHashMap<MaterialType> cachedValues;
 
 		private final String id;

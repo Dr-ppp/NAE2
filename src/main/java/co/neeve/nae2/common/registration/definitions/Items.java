@@ -52,10 +52,12 @@ public class Items implements Definitions<IItemDefinition> {
 	private final IItemDefinition singlestorageCell1024K;
 	private final IItemDefinition singlestorageCell4096K;
 	private final IItemDefinition singlestorageCell16384K;
+	private final IItemDefinition singlestorageCellMax;
 	private final IItemDefinition singlestorageCellFluid256K;
 	private final IItemDefinition singlestorageCellFluid1024K;
 	private final IItemDefinition singlestorageCellFluid4096K;
 	private final IItemDefinition singlestorageCellFluid16384K;
+	private final IItemDefinition singlestorageCellFluidMax;
 
 	public Items(Registry registry) {
 		this.virtualPattern = this.registerById(registry.item("virtual_pattern", VirtualPattern::new)
@@ -174,6 +176,12 @@ public class Items implements Definitions<IItemDefinition> {
 								(int) Math.pow(2, 14)))
 				.features(Features.DENSE_CELLS)
 				.build());
+		this.singlestorageCellMax = this.registerById(registry.item("single_storage_cell_max", () ->
+						new DenseSingleItemCell(Materials.MaterialType.CELL_PART_MAX,
+								2097151))
+				.features(Features.DENSE_CELLS)
+				.build());
+
 
 		this.singlestorageCellFluid256K = this.registerById(registry.item("single_storage_cell_fluid_256k", () ->
 						new DenseSingleFluidCell(Materials.MaterialType.CELL_FLUID_PART_256K,
@@ -198,6 +206,11 @@ public class Items implements Definitions<IItemDefinition> {
 								(int) Math.pow(2, 14)))
 				.features(Features.DENSE_FLUID_CELLS)
 				.build());
+		this.singlestorageCellFluidMax = this.registerById(registry.item("single_storage_cell_fluid_max", () ->
+						new DenseSingleFluidCell(Materials.MaterialType.CELL_FLUID_PART_MAX,
+								2097151))
+				.features(Features.DENSE_FLUID_CELLS)
+				.build());
 		registry.addBootstrapComponent((IPostInitComponent) r -> {
 			var items = AEApi.instance().definitions().items();
 			var cellDef = items.cell1k();
@@ -211,7 +224,8 @@ public class Items implements Definitions<IItemDefinition> {
 						this.singlestorageCell256K,
 						this.singlestorageCell1024K,
 						this.singlestorageCell4096K,
-						this.singlestorageCell16384K
+						this.singlestorageCell16384K,
+						this.singlestorageCellMax
 				});
 			}
 
@@ -226,7 +240,8 @@ public class Items implements Definitions<IItemDefinition> {
 						this.singlestorageCellFluid256K,
 						this.singlestorageCellFluid1024K,
 						this.singlestorageCellFluid4096K,
-						this.singlestorageCellFluid16384K
+						this.singlestorageCellFluid16384K,
+						this.singlestorageCellFluidMax
 				});
 			}
 		});
@@ -320,6 +335,9 @@ public class Items implements Definitions<IItemDefinition> {
 	public IItemDefinition singlestorageCell16384K() {
 		return this.singlestorageCell16384K;
 	}
+	public IItemDefinition singlestorageCellMax() {
+		return this.singlestorageCellMax;
+	}
 
 	public IItemDefinition singlestorageCellFluid256K() {
 		return this.singlestorageCellFluid256K;
@@ -335,6 +353,9 @@ public class Items implements Definitions<IItemDefinition> {
 
 	public IItemDefinition singlestorageCellFluid16384K() {
 		return this.singlestorageCellFluid16384K;
+	}
+	public IItemDefinition singlestorageCellFluidMax() {
+		return this.singlestorageCellFluidMax;
 	}
 
 
