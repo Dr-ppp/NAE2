@@ -350,7 +350,14 @@ public class Items implements Definitions<IItemDefinition> {
 						this.singlestorageCell4096K,
 						this.singlestorageCell16384K,
 						this.singlestorageCellMax,
-						this.multistorageCell1K
+						this.multistorageCell1K,
+						this.multistorageCell4K,
+						this.multistorageCell16K,
+						this.multistorageCell64K,
+						this.multistorageCell256K,
+						this.multistorageCell1024K,
+						this.multistorageCell4096K,
+						this.multistorageCell16384K
 				});
 			}
 
