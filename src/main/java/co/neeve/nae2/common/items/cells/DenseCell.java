@@ -63,7 +63,7 @@ public abstract class DenseCell<T extends IAEStack<T>> extends AEBaseItem implem
 	}
 
 	public int getTotalTypes(@NotNull ItemStack cellItem) {
-		return 63;
+		return 63 ;
 	}
 
 	public boolean isBlackListed(@NotNull ItemStack cellItem, @NotNull T requestedAddition) {

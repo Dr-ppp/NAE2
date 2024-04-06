@@ -475,6 +475,10 @@ dependencies {
         // should use 2.8.6 but 2.8.9+ has a vulnerability fix
         annotationProcessor 'com.google.code.gson:gson:2.8.9'
 
+        implementation rfg.deobf(files("libs/lazy-ae2-1.12.2-1.1.26.jar"))
+        implementation rfg.deobf(files("libs/ExtendedAE-1.12-0.0.1.jar"))
+        implementation rfg.deobf(files("libs/libnine-1.12.2-1.2.1.jar"))
+
         mixinProviderSpec = modUtils.enableMixins(mixinProviderSpec, "mixins.${modId}.refmap.json")
         api (mixinProviderSpec) {
             transitive = false

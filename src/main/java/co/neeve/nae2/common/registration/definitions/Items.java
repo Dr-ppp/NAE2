@@ -13,6 +13,8 @@ import co.neeve.nae2.common.items.VirtualPattern;
 import co.neeve.nae2.common.items.cells.DenseFluidCell;
 import co.neeve.nae2.common.items.cells.DenseItemCell;
 import co.neeve.nae2.common.items.cells.handlers.VoidCellHandler;
+import co.neeve.nae2.common.items.cells.multiCell.MultiFluidCell;
+import co.neeve.nae2.common.items.cells.multiCell.MultiItemCell;
 import co.neeve.nae2.common.items.cells.singlecell.DenseSingleFluidCell;
 import co.neeve.nae2.common.items.cells.singlecell.DenseSingleItemCell;
 import co.neeve.nae2.common.items.cells.vc.VoidFluidCell;
@@ -59,6 +61,27 @@ public class Items implements Definitions<IItemDefinition> {
 	private final IItemDefinition singlestorageCellFluid16384K;
 	private final IItemDefinition singlestorageCellFluidMax;
 
+	//多重硬盘 注册1k-64k
+	private final IItemDefinition multistorageCell1K;
+	private final IItemDefinition multistorageCell4K;
+	private final IItemDefinition multistorageCell16K;
+	private final IItemDefinition multistorageCell64K;
+
+	private final IItemDefinition multistorageCell256K;
+	private final IItemDefinition multistorageCell1024K;
+	private final IItemDefinition multistorageCell4096K;
+	private final IItemDefinition multistorageCell16384K;
+
+
+	private final IItemDefinition multistorageCellFluid1K;
+	private final IItemDefinition multistorageCellFluid4K;
+	private final IItemDefinition multistorageCellFluid16K;
+	private final IItemDefinition multistorageCellFluid64K;
+
+	private final IItemDefinition multistorageCellFluid256K;
+	private final IItemDefinition multistorageCellFluid1024K;
+	private final IItemDefinition multistorageCellFluid4096K;
+	private final IItemDefinition multistorageCellFluid16384K;
 	public Items(Registry registry) {
 		this.virtualPattern = this.registerById(registry.item("virtual_pattern", VirtualPattern::new)
 			.hide()
@@ -211,6 +234,107 @@ public class Items implements Definitions<IItemDefinition> {
 								2097151))
 				.features(Features.DENSE_FLUID_CELLS)
 				.build());
+
+		//多重硬盘
+		this.multistorageCell1K = this.registerById(registry.item("multi_storage_cell_1k", () ->
+						new MultiItemCell(Materials.MaterialType.MULTI_CELL_PART_1K,
+								(int) Math.pow(2, 0)))
+				.features(Features.DENSE_CELLS)
+				.build());
+
+		this.multistorageCell4K = this.registerById(registry.item("multi_storage_cell_4k", () ->
+						new MultiItemCell(Materials.MaterialType.MULTI_CELL_PART_4K,
+								(int) Math.pow(2, 2)))
+				.features(Features.DENSE_CELLS)
+				.build());
+
+		this.multistorageCell16K = this.registerById(registry.item("multi_storage_cell_16k", () ->
+						new MultiItemCell(Materials.MaterialType.MULTI_CELL_PART_16K,
+								(int) Math.pow(2, 4)))
+				.features(Features.DENSE_CELLS)
+				.build());
+
+		this.multistorageCell64K = this.registerById(registry.item("multi_storage_cell_64k", () ->
+						new MultiItemCell(Materials.MaterialType.MULTI_CELL_PART_64K,
+								(int) Math.pow(2, 6)))
+				.features(Features.DENSE_CELLS)
+				.build());
+
+		this.multistorageCell256K = this.registerById(registry.item("multi_storage_cell_256k", () ->
+						new MultiItemCell(Materials.MaterialType.MULTI_CELL_PART_256K,
+								(int) Math.pow(2, 8)))
+				.features(Features.DENSE_CELLS)
+				.build());
+
+		this.multistorageCell1024K = this.registerById(registry.item("multi_storage_cell_1024k", () ->
+						new MultiItemCell(Materials.MaterialType.MULTI_CELL_PART_1024K,
+								(int) Math.pow(2, 10)))
+				.features(Features.DENSE_CELLS)
+				.build());
+
+		this.multistorageCell4096K = this.registerById(registry.item("multi_storage_cell_4096k", () ->
+						new MultiItemCell(Materials.MaterialType.MULTI_CELL_PART_4096K,
+								(int) Math.pow(2, 12)))
+				.features(Features.DENSE_CELLS)
+				.build());
+
+		this.multistorageCell16384K = this.registerById(registry.item("multi_storage_cell_16384k", () ->
+						new MultiItemCell(Materials.MaterialType.MULTI_CELL_PART_16384K,
+								(int) Math.pow(2, 14)))
+				.features(Features.DENSE_CELLS)
+				.build());
+
+
+
+
+		this.multistorageCellFluid1K = this.registerById(registry.item("multi_storage_cell_fluid_1k", () ->
+						new MultiFluidCell(Materials.MaterialType.MULTI_CELL_FLUID_PART_1K,
+								(int) Math.pow(2, 0)))
+				.features(Features.DENSE_FLUID_CELLS)
+				.build());
+
+		this.multistorageCellFluid4K = this.registerById(registry.item("multi_storage_cell_fluid_4k", () ->
+						new MultiFluidCell(Materials.MaterialType.MULTI_CELL_FLUID_PART_4K,
+								(int) Math.pow(2, 2)))
+				.features(Features.DENSE_FLUID_CELLS)
+				.build());
+
+		this.multistorageCellFluid16K = this.registerById(registry.item("multi_storage_cell_fluid_16k", () ->
+						new MultiFluidCell(Materials.MaterialType.MULTI_CELL_FLUID_PART_16K,
+								(int) Math.pow(2, 4)))
+				.features(Features.DENSE_FLUID_CELLS)
+				.build());
+
+		this.multistorageCellFluid64K = this.registerById(registry.item("multi_storage_cell_fluid_64k", () ->
+						new MultiFluidCell(Materials.MaterialType.MULTI_CELL_FLUID_PART_64K,
+								(int) Math.pow(2, 6)))
+				.features(Features.DENSE_FLUID_CELLS)
+				.build());
+
+		this.multistorageCellFluid256K = this.registerById(registry.item("multi_storage_cell_fluid_256k", () ->
+						new MultiFluidCell(Materials.MaterialType.MULTI_CELL_FLUID_PART_256K,
+								(int) Math.pow(2, 8)))
+				.features(Features.DENSE_FLUID_CELLS)
+				.build());
+
+		this.multistorageCellFluid1024K = this.registerById(registry.item("multi_storage_cell_fluid_1024k", () ->
+						new MultiFluidCell(Materials.MaterialType.MULTI_CELL_FLUID_PART_1024K,
+								(int) Math.pow(2, 10)))
+				.features(Features.DENSE_FLUID_CELLS)
+				.build());
+
+		this.multistorageCellFluid4096K = this.registerById(registry.item("multi_storage_cell_fluid_4096k", () ->
+						new MultiFluidCell(Materials.MaterialType.MULTI_CELL_FLUID_PART_4096K,
+								(int) Math.pow(2, 12)))
+				.features(Features.DENSE_FLUID_CELLS)
+				.build());
+
+		this.multistorageCellFluid16384K = this.registerById(registry.item("multi_storage_cell_fluid_16384k", () ->
+						new MultiFluidCell(Materials.MaterialType.MULTI_CELL_FLUID_PART_16384K,
+								(int) Math.pow(2, 14)))
+				.features(Features.DENSE_FLUID_CELLS)
+				.build());
+
 		registry.addBootstrapComponent((IPostInitComponent) r -> {
 			var items = AEApi.instance().definitions().items();
 			var cellDef = items.cell1k();
@@ -225,7 +349,8 @@ public class Items implements Definitions<IItemDefinition> {
 						this.singlestorageCell1024K,
 						this.singlestorageCell4096K,
 						this.singlestorageCell16384K,
-						this.singlestorageCellMax
+						this.singlestorageCellMax,
+						this.multistorageCell1K
 				});
 			}
 
@@ -241,7 +366,15 @@ public class Items implements Definitions<IItemDefinition> {
 						this.singlestorageCellFluid1024K,
 						this.singlestorageCellFluid4096K,
 						this.singlestorageCellFluid16384K,
-						this.singlestorageCellFluidMax
+						this.singlestorageCellFluidMax,
+						this.multistorageCellFluid1K,
+						this.multistorageCellFluid4K,
+						this.multistorageCellFluid16K,
+						this.multistorageCellFluid64K,
+						this.multistorageCellFluid256K,
+						this.multistorageCellFluid1024K,
+						this.multistorageCellFluid4096K,
+						this.multistorageCellFluid16384K
 				});
 			}
 		});
@@ -316,9 +449,7 @@ public class Items implements Definitions<IItemDefinition> {
 		return this.storageCellFluid4096K;
 	}
 
-	public IItemDefinition storageCellFluid16384K() {
-		return this.storageCellFluid16384K;
-	}
+	public IItemDefinition storageCellFluid16384K() {return this.storageCellFluid16384K;}
 
 	public IItemDefinition singlestorageCell256K() {
 		return this.singlestorageCell256K;
@@ -358,5 +489,55 @@ public class Items implements Definitions<IItemDefinition> {
 		return this.singlestorageCellFluidMax;
 	}
 
+	public IItemDefinition multistorageCell1K() {
+		return this.multistorageCell1K;
+	}
+	public IItemDefinition multistorageCell4K() {
+		return this.multistorageCell4K;
+	}
+	public IItemDefinition multistorageCell16K() {
+		return this.multistorageCell16K;
+	}
+	public IItemDefinition multistorageCell64K() {
+		return this.multistorageCell64K;
+	}
+	public IItemDefinition multistorageCell256K() {
+		return this.multistorageCell256K;
+	}
+	public IItemDefinition multistorageCell1024K() {
+		return this.multistorageCell1024K;
+	}
+	public IItemDefinition multistorageCell4096K() {
+		return this.multistorageCell4096K;
+	}
+	public IItemDefinition multistorageCell16384K() {
+		return this.multistorageCell16384K;
+	}
+
+
+	public IItemDefinition multistorageCellFluid1K() {
+		return this.multistorageCellFluid1K;
+	}
+	public IItemDefinition multistorageCellFluid4K() {
+		return this.multistorageCellFluid4K;
+	}
+	public IItemDefinition multistorageCellFluid16K() {
+		return this.multistorageCellFluid16K;
+	}
+	public IItemDefinition multistorageCellFluid64K() {
+		return this.multistorageCellFluid64K;
+	}
+	public IItemDefinition multistorageCellFluid256K() {
+		return this.multistorageCellFluid256K;
+	}
+	public IItemDefinition multistorageCellFluid1024K() {
+		return this.multistorageCellFluid1024K;
+	}
+	public IItemDefinition multistorageCellFluid4096K() {
+		return this.multistorageCellFluid4096K;
+	}
+	public IItemDefinition multistorageCellFluid16384K() {
+		return this.multistorageCellFluid16384K;
+	}
 
 }

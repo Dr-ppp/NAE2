@@ -28,6 +28,27 @@ import java.util.Optional;
 public class Materials implements DamagedDefinitions<DamagedItemDefinition, Materials.MaterialType> {
 	private final Object2ObjectOpenHashMap<String, DamagedItemDefinition> byId =
 		new Object2ObjectOpenHashMap<>();
+
+	private final IItemDefinition MulticellPart1K;
+	private final IItemDefinition MulticellPart4K;
+	private final IItemDefinition MulticellPart16K;
+	private final IItemDefinition MulticellPart64K;
+
+	private final IItemDefinition MulticellPart256K;
+	private final IItemDefinition MulticellPart1024K;
+	private final IItemDefinition MulticellPart4096K;
+	private final IItemDefinition MulticellPart16384K;
+
+
+	private final IItemDefinition MulticellFluidPart1K;
+	private final IItemDefinition MulticellFluidPart4K;
+	private final IItemDefinition MulticellFluidPart16K;
+	private final IItemDefinition MulticellFluidPart64K;
+
+	private final IItemDefinition MulticellFluidPart256K;
+	private final IItemDefinition MulticellFluidPart1024K;
+	private final IItemDefinition MulticellFluidPart4096K;
+	private final IItemDefinition MulticellFluidPart16384K;
 	private final IItemDefinition cellPartVoid;
 	private final IItemDefinition cellPart256K;
 	private final IItemDefinition cellPart1024K;
@@ -46,6 +67,25 @@ public class Materials implements DamagedDefinitions<DamagedItemDefinition, Mate
 		registry.item("material", () -> this.material)
 			.rendering(new DamagedItemRendering<>(this))
 			.build();
+
+		//
+		this.MulticellPart1K = this.createMaterial(this.material, MaterialType.MULTI_CELL_PART_1K);
+		this.MulticellPart4K = this.createMaterial(this.material, MaterialType.MULTI_CELL_PART_4K);
+		this.MulticellPart16K = this.createMaterial(this.material, MaterialType.MULTI_CELL_PART_16K);
+		this.MulticellPart64K = this.createMaterial(this.material, MaterialType.MULTI_CELL_PART_64K);
+		this.MulticellPart256K = this.createMaterial(this.material, MaterialType.MULTI_CELL_PART_256K);
+		this.MulticellPart1024K = this.createMaterial(this.material, MaterialType.MULTI_CELL_PART_1024K);
+		this.MulticellPart4096K = this.createMaterial(this.material, MaterialType.MULTI_CELL_PART_4096K);
+		this.MulticellPart16384K = this.createMaterial(this.material, MaterialType.MULTI_CELL_PART_16384K);
+
+		this.MulticellFluidPart1K = this.createMaterial(this.material, MaterialType.MULTI_CELL_FLUID_PART_1K);
+		this.MulticellFluidPart4K = this.createMaterial(this.material, MaterialType.MULTI_CELL_FLUID_PART_4K);
+		this.MulticellFluidPart16K = this.createMaterial(this.material, MaterialType.MULTI_CELL_FLUID_PART_16K);
+		this.MulticellFluidPart64K = this.createMaterial(this.material, MaterialType.MULTI_CELL_FLUID_PART_64K);
+		this.MulticellFluidPart256K = this.createMaterial(this.material, MaterialType.MULTI_CELL_FLUID_PART_256K);
+		this.MulticellFluidPart1024K = this.createMaterial(this.material, MaterialType.MULTI_CELL_FLUID_PART_1024K);
+		this.MulticellFluidPart4096K = this.createMaterial(this.material, MaterialType.MULTI_CELL_FLUID_PART_4096K);
+		this.MulticellFluidPart16384K = this.createMaterial(this.material, MaterialType.MULTI_CELL_FLUID_PART_16384K);
 
 		this.cellPartVoid = this.createMaterial(this.material, MaterialType.CELL_PART_VOID);
 		this.cellPart256K = this.createMaterial(this.material, MaterialType.CELL_PART_256K);
@@ -128,7 +168,50 @@ public class Materials implements DamagedDefinitions<DamagedItemDefinition, Mate
 	public IItemDefinition cellFluidPartMax() {
 		return this.cellFluidPartMax;
 	}
+
+
+	//
+	public IItemDefinition MulticellPart1K() {return this.MulticellPart1K;}
+	public IItemDefinition MulticellPart4K() {return this.MulticellPart4K;}
+	public IItemDefinition MulticellPart16K() {return this.MulticellPart16K;}
+	public IItemDefinition MulticellPart64K() {return this.MulticellPart64K;}
+	public IItemDefinition MulticellPart256K() {return this.MulticellPart256K;}
+	public IItemDefinition MulticellPart1024K() {return this.MulticellPart1024K;}
+	public IItemDefinition MulticellPart4096K() {return this.MulticellPart4096K;}
+	public IItemDefinition MulticellPart16384K() {return this.MulticellPart16384K;}
+
+	public IItemDefinition MulticellFluidPart1K() {return this.MulticellFluidPart1K;}
+	public IItemDefinition MulticellFluidPart4K() {return this.MulticellFluidPart4K;}
+	public IItemDefinition MulticellFluidPart16K() {return this.MulticellFluidPart16K;}
+	public IItemDefinition MulticellFluidPart64K() {return this.MulticellFluidPart64K;}
+	public IItemDefinition MulticellFluidPart256K() {return this.MulticellFluidPart256K;}
+	public IItemDefinition MulticellFluidPart1024K() {return this.MulticellFluidPart1024K;}
+	public IItemDefinition MulticellFluidPart4096K() {return this.MulticellFluidPart4096K;}
+	public IItemDefinition MulticellFluidPart16384K() {return this.MulticellFluidPart16384K;}
 	public enum MaterialType implements IModelProvider {
+
+		//
+		MULTI_CELL_PART_1K("multi_cell_part_1k", Features.DENSE_CELLS),
+		MULTI_CELL_PART_4K("multi_cell_part_4k", Features.DENSE_CELLS),
+		MULTI_CELL_PART_16K("multi_cell_part_16k", Features.DENSE_CELLS),
+		MULTI_CELL_PART_64K("multi_cell_part_64k", Features.DENSE_CELLS),
+
+		MULTI_CELL_PART_256K("multi_cell_part_256k", Features.DENSE_CELLS),
+		MULTI_CELL_PART_1024K("multi_cell_part_1024k", Features.DENSE_CELLS),
+		MULTI_CELL_PART_4096K("multi_cell_part_4096k", Features.DENSE_CELLS),
+		MULTI_CELL_PART_16384K("multi_cell_part_16384k", Features.DENSE_CELLS),
+
+
+		MULTI_CELL_FLUID_PART_1K("multi_cell_part_fluid_1k", Features.DENSE_FLUID_CELLS),
+		MULTI_CELL_FLUID_PART_4K("multi_cell_part_fluid_4k", Features.DENSE_FLUID_CELLS),
+		MULTI_CELL_FLUID_PART_16K("multi_cell_part_fluid_16k", Features.DENSE_FLUID_CELLS),
+		MULTI_CELL_FLUID_PART_64K("multi_cell_part_fluid_64k", Features.DENSE_FLUID_CELLS),
+
+		MULTI_CELL_FLUID_PART_256K("multi_cell_part_fluid_256k", Features.DENSE_FLUID_CELLS),
+		MULTI_CELL_FLUID_PART_1024K("multi_cell_part_fluid_1024k", Features.DENSE_FLUID_CELLS),
+		MULTI_CELL_FLUID_PART_4096K("multi_cell_part_fluid_4096k", Features.DENSE_FLUID_CELLS),
+		MULTI_CELL_FLUID_PART_16384K("multi_cell_part_fluid_16384k", Features.DENSE_FLUID_CELLS),
+
 		CELL_PART_VOID("cell_part_void", Features.VOID_CELLS),
 		CELL_PART_256K("cell_part_256k", Features.DENSE_CELLS),
 		CELL_PART_1024K("cell_part_1024k", Features.DENSE_CELLS),
@@ -140,6 +223,7 @@ public class Materials implements DamagedDefinitions<DamagedItemDefinition, Mate
 		CELL_FLUID_PART_4096K("cell_part_fluid_4096k", Features.DENSE_FLUID_CELLS),
 		CELL_FLUID_PART_16384K("cell_part_fluid_16384k", Features.DENSE_FLUID_CELLS),
 		CELL_FLUID_PART_MAX("cell_part_fluid_max", Features.DENSE_FLUID_CELLS);
+
 		private static Int2ObjectLinkedOpenHashMap<MaterialType> cachedValues;
 
 		private final String id;

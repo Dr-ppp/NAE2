@@ -1,0 +1,5 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "nae2:item/material/multi_cell_part_fluid_1k"
+  }}

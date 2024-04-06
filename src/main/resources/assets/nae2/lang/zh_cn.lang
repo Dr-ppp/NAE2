@@ -1,7 +1,7 @@
 #PARSE_ESCAPES
 
 # Meta
-itemGroup.nae2=Neeve的AE2:EL附加工具
+itemGroup.nae2=刻晴的AE妙妙工具
 
 # Items
 item.nae2.invalid.name=无效或禁用的物品
@@ -59,6 +59,77 @@ tile.nae2.storage_crafting_1024k.name=§61024k§r合成存储器
 tile.nae2.storage_crafting_4096k.name=§e4096k§r合成存储器
 tile.nae2.storage_crafting_16384k.name=§a16384k§r合成存储器
 
+item.nae2.material.multi_cell_part_1k.name=§61k§r-高性能存储组件
+item.nae2.material.multi_cell_part_4k.name=§e4k§r-高性能存储组件
+item.nae2.material.multi_cell_part_16k.name=§a16k§r-高性能存储组件
+item.nae2.material.multi_cell_part_64k.name=§b64k§r-高性能存储组件
+item.nae2.material.multi_cell_part_256k.name=§c256k§r-高性能存储组件
+item.nae2.material.multi_cell_part_1024k.name=§6512k§r-高性能存储组件
+item.nae2.material.multi_cell_part_4096k.name=§e4096k§r-高性能存储组件
+item.nae2.material.multi_cell_part_16384k.name=§a16384k§r-高性能存储组件
+
+item.nae2.material.multi_cell_part_1k.tooltip=压缩存储！
+item.nae2.material.multi_cell_part_4k.tooltip=压缩存储！
+item.nae2.material.multi_cell_part_16k.tooltip=压缩存储！
+item.nae2.material.multi_cell_part_64k.tooltip=压缩存储！
+item.nae2.material.multi_cell_part_256k.tooltip=压缩存储！
+item.nae2.material.multi_cell_part_1024k.tooltip=压缩存储！
+item.nae2.material.multi_cell_part_4096k.tooltip=压缩存储！
+item.nae2.material.multi_cell_part_16384k.tooltip=压缩存储！
+
+item.nae2.material.multi_cell_part_fluid_1k.name=§61k§r-强化流体存储组件
+item.nae2.material.multi_cell_part_fluid_4k.name=§e4k§r-强化流体存储组件
+item.nae2.material.multi_cell_part_fluid_16k.name=§a16k§r-强化流体存储组件
+item.nae2.material.multi_cell_part_fluid_64k.name=§d64k§r-强化流体存储组件
+item.nae2.material.multi_cell_part_fluid_256k.name=§c256k§r-强化流体存储组件
+item.nae2.material.multi_cell_part_fluid_1024k.name=§6512k§r-强化流体存储组件
+item.nae2.material.multi_cell_part_fluid_4096k.name=§e4096k§r-强化流体存储组件
+item.nae2.material.multi_cell_part_fluid_16384k.name=§a16384k§r-强化流体存储组件
+
+item.nae2.material.multi_cell_part_fluid_1k.tooltip=储罐山大王！
+item.nae2.material.multi_cell_part_fluid_4k.tooltip=储罐山大王！
+item.nae2.material.multi_cell_part_fluid_16k.tooltip=储罐山大王！
+item.nae2.material.multi_cell_part_fluid_64k.tooltip=储罐山大王！
+item.nae2.material.multi_cell_part_fluid_256k.tooltip=储罐山大王！
+item.nae2.material.multi_cell_part_fluid_1024k.tooltip=储罐山大王！
+item.nae2.material.multi_cell_part_fluid_4096k.tooltip=储罐山大王！
+item.nae2.material.multi_cell_part_fluid_16384k.tooltip=储罐山大王！
+
+item.nae2.multi_storage_cell_1k.name=§61k§r-高性能存储单元
+item.nae2.multi_storage_cell_4k.name=§e4k§r-高性能存储单元
+item.nae2.multi_storage_cell_16k.name=§a16k§r-高性能存储单元
+item.nae2.multi_storage_cell_64k.name=§d64k§r-高性能存储单元
+item.nae2.multi_storage_cell_256k.name=§c256k§r-高性能存储单元
+item.nae2.multi_storage_cell_1024k.name=§6512k§r-高性能存储单元
+item.nae2.multi_storage_cell_4096k.name=§e4096k§r-高性能存储单元
+item.nae2.multi_storage_cell_16384k.name=§a16384k§r-高性能存储单元
+
+item.nae2.multi_storage_cell_1k.tooltip=一个顶俩！
+item.nae2.multi_storage_cell_4k.tooltip=一个顶俩！
+item.nae2.multi_storage_cell_16k.tooltip=一个顶俩！
+item.nae2.multi_storage_cell_64k.tooltip=一个顶俩！
+item.nae2.multi_storage_cell_256k.tooltip=一个顶俩！
+item.nae2.multi_storage_cell_1024k.tooltip=一个顶俩！
+item.nae2.multi_storage_cell_4096k.tooltip=一个顶俩！
+item.nae2.multi_storage_cell_16384k.tooltip=一个顶俩！
+
+item.nae2.multi_storage_cell_fluid_1k.name=§61k§r-强化流体存储单元
+item.nae2.multi_storage_cell_fluid_4k.name=§e4k§r-强化流体存储单元
+item.nae2.multi_storage_cell_fluid_16k.name=§a16k§r-强化流体存储单元
+item.nae2.multi_storage_cell_fluid_64k.name=§d64k§r-强化流体存储单元
+item.nae2.multi_storage_cell_fluid_256k.name=§c256k§r-强化流体存储单元
+item.nae2.multi_storage_cell_fluid_1024k.name=§6512k§r-强化流体存储单元
+item.nae2.multi_storage_cell_fluid_4096k.name=§e4096k§r-强化流体存储单元
+item.nae2.multi_storage_cell_fluid_16384k.name=§a16384k§r-强化流体存储单元
+
+item.nae2.multi_storage_cell_fluid_1k.tooltip=大号TFFT!
+item.nae2.multi_storage_cell_fluid_4k.tooltip=大号TFFT!
+item.nae2.multi_storage_cell_fluid_16k.tooltip=大号TFFT!
+item.nae2.multi_storage_cell_fluid_64k.tooltip=大号TFFT!
+item.nae2.multi_storage_cell_fluid_256k.tooltip=大号TFFT!
+item.nae2.multi_storage_cell_fluid_1024k.tooltip=大号TFFT!
+item.nae2.multi_storage_cell_fluid_4096k.tooltip=大号TFFT!
+item.nae2.multi_storage_cell_fluid_16384k.tooltip=大号TFFT!
 # Pattern Multi-Tool GUI
 nae2.pattern_multiplier.unencode=清除
 nae2.pattern_multiplier.unencode.desc=清除所有编码样板的配置。该操作无法回退！
