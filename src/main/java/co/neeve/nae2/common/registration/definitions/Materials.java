@@ -60,6 +60,9 @@ public class Materials implements DamagedDefinitions<DamagedItemDefinition, Mate
 	private final IItemDefinition cellFluidPart4096K;
 	private final IItemDefinition cellFluidPart16384K;
 	private final IItemDefinition cellFluidPartMax;
+
+	private final IItemDefinition storageCellSingularity;
+	private final IItemDefinition storageCellFluidSingularity;
 	private final NAEMaterial material;
 
 	public Materials(Registry registry) {
@@ -77,6 +80,7 @@ public class Materials implements DamagedDefinitions<DamagedItemDefinition, Mate
 		this.MulticellPart1024K = this.createMaterial(this.material, MaterialType.MULTI_CELL_PART_1024K);
 		this.MulticellPart4096K = this.createMaterial(this.material, MaterialType.MULTI_CELL_PART_4096K);
 		this.MulticellPart16384K = this.createMaterial(this.material, MaterialType.MULTI_CELL_PART_16384K);
+		this.storageCellSingularity = this.createMaterial(this.material, MaterialType.CELL_PART_SINGULARITY);
 
 		this.MulticellFluidPart1K = this.createMaterial(this.material, MaterialType.MULTI_CELL_FLUID_PART_1K);
 		this.MulticellFluidPart4K = this.createMaterial(this.material, MaterialType.MULTI_CELL_FLUID_PART_4K);
@@ -86,6 +90,7 @@ public class Materials implements DamagedDefinitions<DamagedItemDefinition, Mate
 		this.MulticellFluidPart1024K = this.createMaterial(this.material, MaterialType.MULTI_CELL_FLUID_PART_1024K);
 		this.MulticellFluidPart4096K = this.createMaterial(this.material, MaterialType.MULTI_CELL_FLUID_PART_4096K);
 		this.MulticellFluidPart16384K = this.createMaterial(this.material, MaterialType.MULTI_CELL_FLUID_PART_16384K);
+		this.storageCellFluidSingularity = this.createMaterial(this.material, MaterialType.CELL_FLUID_PART_SINGULARITY);
 
 		this.cellPartVoid = this.createMaterial(this.material, MaterialType.CELL_PART_VOID);
 		this.cellPart256K = this.createMaterial(this.material, MaterialType.CELL_PART_256K);
@@ -211,6 +216,9 @@ public class Materials implements DamagedDefinitions<DamagedItemDefinition, Mate
 		MULTI_CELL_FLUID_PART_1024K("multi_cell_part_fluid_1024k", Features.DENSE_FLUID_CELLS),
 		MULTI_CELL_FLUID_PART_4096K("multi_cell_part_fluid_4096k", Features.DENSE_FLUID_CELLS),
 		MULTI_CELL_FLUID_PART_16384K("multi_cell_part_fluid_16384k", Features.DENSE_FLUID_CELLS),
+
+		CELL_PART_SINGULARITY("cell_part_singularity", Features.EXTREME_CELLS),
+		CELL_FLUID_PART_SINGULARITY("cell_fluid_part_singularity", Features.EXTREME_FLUID_CELLS),
 
 		CELL_PART_VOID("cell_part_void", Features.VOID_CELLS),
 		CELL_PART_256K("cell_part_256k", Features.DENSE_CELLS),

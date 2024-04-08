@@ -13,6 +13,7 @@ import co.neeve.nae2.common.items.cells.vc.VoidFluidCell;
 import co.neeve.nae2.common.items.cells.vc.VoidItemCell;
 import net.minecraft.item.ItemStack;
 
+
 public final class VoidCellHandler implements IVoidingCellHandler {
 	public VoidCellHandler() {
 	}
@@ -24,12 +25,12 @@ public final class VoidCellHandler implements IVoidingCellHandler {
 
 	@Override
 	public <T extends IAEStack<T>> ICellInventoryHandler<T> getCellInventory(ItemStack itemStack,
-	                                                                         ISaveProvider iSaveProvider,
-	                                                                         IStorageChannel<T> iStorageChannel) {
+																			 ISaveProvider iSaveProvider,
+																			 IStorageChannel<T> iStorageChannel) {
 		return !itemStack.isEmpty()
-			&& (
-			(itemStack.getItem() instanceof VoidItemCell && iStorageChannel instanceof IItemStorageChannel)
-				|| (itemStack.getItem() instanceof VoidFluidCell && iStorageChannel instanceof IFluidStorageChannel)
+				&& (
+				(itemStack.getItem() instanceof VoidItemCell && iStorageChannel instanceof IItemStorageChannel)
+						|| (itemStack.getItem() instanceof VoidFluidCell && iStorageChannel instanceof IFluidStorageChannel)
 		) ? new VoidCellInventory<>(itemStack, iSaveProvider) : null;
 	}
 
@@ -43,3 +44,4 @@ public final class VoidCellHandler implements IVoidingCellHandler {
 		return 2.0;
 	}
 }
+

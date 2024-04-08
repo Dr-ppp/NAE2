@@ -12,6 +12,9 @@ import co.neeve.nae2.common.features.Features;
 import co.neeve.nae2.common.items.VirtualPattern;
 import co.neeve.nae2.common.items.cells.DenseFluidCell;
 import co.neeve.nae2.common.items.cells.DenseItemCell;
+import co.neeve.nae2.common.items.cells.ec.ExtremeFluidCell;
+import co.neeve.nae2.common.items.cells.ec.ExtremeItemCell;
+import co.neeve.nae2.common.items.cells.handlers.ExtremeCellHandler;
 import co.neeve.nae2.common.items.cells.handlers.VoidCellHandler;
 import co.neeve.nae2.common.items.cells.multiCell.MultiFluidCell;
 import co.neeve.nae2.common.items.cells.multiCell.MultiItemCell;
@@ -82,6 +85,10 @@ public class Items implements Definitions<IItemDefinition> {
 	private final IItemDefinition multistorageCellFluid1024K;
 	private final IItemDefinition multistorageCellFluid4096K;
 	private final IItemDefinition multistorageCellFluid16384K;
+
+	private final IItemDefinition storageCellSingularity;
+
+	private final IItemDefinition storageCellFluidSingularity;
 	public Items(Registry registry) {
 		this.virtualPattern = this.registerById(registry.item("virtual_pattern", VirtualPattern::new)
 			.hide()
@@ -335,6 +342,19 @@ public class Items implements Definitions<IItemDefinition> {
 				.features(Features.DENSE_FLUID_CELLS)
 				.build());
 
+		this.storageCellSingularity = this.registerById(registry.item("storage_cell_singularity", () ->
+						new ExtremeItemCell(Materials.MaterialType.CELL_PART_SINGULARITY,
+								Long.MAX_VALUE / 8))
+				.features(Features.EXTREME_CELLS)
+				.build());
+
+		this.storageCellFluidSingularity = this.registerById(registry.item("storage_cell_fluid_singularity", () ->
+						new ExtremeFluidCell(Materials.MaterialType.CELL_FLUID_PART_SINGULARITY,
+								Long.MAX_VALUE / 8000))
+				.features(Features.EXTREME_FLUID_CELLS)
+				.build());
+
+
 		registry.addBootstrapComponent((IPostInitComponent) r -> {
 			var items = AEApi.instance().definitions().items();
 			var cellDef = items.cell1k();
@@ -359,6 +379,14 @@ public class Items implements Definitions<IItemDefinition> {
 						this.multistorageCell4096K,
 						this.multistorageCell16384K
 				});
+			}
+			if (Features.EXTREME_CELLS.isEnabled() && cellDef.isEnabled()) {
+				mirrorCellUpgrades(cellDef, new IItemDefinition[] {
+						this.storageCellSingularity,
+						this.storageCellFluidSingularity
+				});
+
+				AEApi.instance().registries().cell().addCellHandler(new ExtremeCellHandler());
 			}
 
 			var fluidCellDef = items.fluidCell1k();
@@ -545,6 +573,13 @@ public class Items implements Definitions<IItemDefinition> {
 	}
 	public IItemDefinition multistorageCellFluid16384K() {
 		return this.multistorageCellFluid16384K;
+	}
+
+	public IItemDefinition storageCellSingularity() {
+		return this.storageCellSingularity;
+	}
+	public IItemDefinition storageCellFluidSingularity() {
+		return this.storageCellFluidSingularity;
 	}
 
 }

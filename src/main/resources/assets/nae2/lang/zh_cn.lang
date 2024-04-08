@@ -130,6 +130,13 @@ item.nae2.multi_storage_cell_fluid_256k.tooltip=大号TFFT!
 item.nae2.multi_storage_cell_fluid_1024k.tooltip=大号TFFT!
 item.nae2.multi_storage_cell_fluid_4096k.tooltip=大号TFFT!
 item.nae2.multi_storage_cell_fluid_16384k.tooltip=大号TFFT!
+
+#虚空
+item.nae2.material.cell_part_singularity.name=§c§l奇点存储原件§r
+item.nae2.material.cell_fluid_part_singularity.name=§c§l奇点流体存储原件§r
+
+item.nae2.storage_cell_singularity.name=§c§l奇点存储单元§r
+item.nae2.storage_cell_fluid_singularity.name=§c§l奇点流体存储单元§r
 # Pattern Multi-Tool GUI
 nae2.pattern_multiplier.unencode=清除
 nae2.pattern_multiplier.unencode.desc=清除所有编码样板的配置。该操作无法回退！
