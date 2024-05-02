@@ -99,7 +99,7 @@ item.nae2.multi_storage_cell_1k.name=§61k§r-高性能存储单元
 item.nae2.multi_storage_cell_4k.name=§e4k§r-高性能存储单元
 item.nae2.multi_storage_cell_16k.name=§a16k§r-高性能存储单元
 item.nae2.multi_storage_cell_64k.name=§d64k§r-高性能存储单元
-item.nae2.multi_storage_cell_256k.name=§c256k§r-高性能存储单元
+item.nae2.multi_storage_cell_256k.name=§c256k§r-高性能存储单e元
 item.nae2.multi_storage_cell_1024k.name=§6512k§r-高性能存储单元
 item.nae2.multi_storage_cell_4096k.name=§e4096k§r-高性能存储单元
 item.nae2.multi_storage_cell_16384k.name=§a16384k§r-高性能存储单元
@@ -144,14 +144,6 @@ nae2.pattern_multiplier.replace=替换
 nae2.pattern_multiplier.replace.desc=在所有编码样板的配置中匹配第一个槽位的物品并将其替换为第二个槽位的物品。§4该操作无法回退！§7\n\n§c红色§7表示物品已成功匹配，但替换后的样板无效。将跳过该槽位的操作。\n\n§a绿色§7表示物品已成功匹配，替换操作将正常进行。
 nae2.pattern_multiplier.tab.multiply=倍增
 nae2.pattern_multiplier.tab.replace=替换
-nae2.jei.missing.craft.2=按住 Ctrl 键来批量请求合成。
-
-nae2.jei.missing.partialcraft.1=[NAE2] 部分缺失物品可合成。
-nae2.jei.missing.partialcraft.2=按住 CTRL 键以略过/批量合成缺失物品。
-
-nae2.jei.missing.bypasscraft.1=[NAE2] 所有缺失物品均不可合成。
-nae2.jei.missing.bypasscraft.2=按住 CTRL 键以略过并尽可能多地将其回填网络。
-
 # Beam Former GUI
 nae2.part.beam_former.hide=已隐藏光束。
 nae2.part.beam_former.show=已显示光束。
@@ -162,8 +154,14 @@ nae2.storage_cell_void.warning.2=如不清楚预计的后果，请先在%s中进
 nae2.storage_cell_void.count=已存储%s %s能量。
 
 # JEI Ctrl-Craft GUI
-nae2.jei.missing.craft.1=[NAE2] 所有缺失物品均可合成。
+nae2.jei.missing.craft.1=[抱歉喵] 所有缺失物品均可合成。
 nae2.jei.missing.craft.2=按住 Ctrl 来批量请求合成。
+
+nae2.jei.missing.partialcraft.1=[抱歉喵] 部分缺失物品可合成。
+nae2.jei.missing.partialcraft.2=按住 CTRL 键以略过/批量合成缺失物品。
+
+nae2.jei.missing.bypasscraft.1=[抱歉喵] 所有缺失物品均不可合成。
+nae2.jei.missing.bypasscraft.2=按住 CTRL 键以略过并尽可能多地将其回填网络。
 
 nae2.jei.cellview.items=物品
 nae2.jei.cellview.buckets=桶
