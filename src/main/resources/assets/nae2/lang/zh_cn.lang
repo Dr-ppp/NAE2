@@ -144,6 +144,13 @@ nae2.pattern_multiplier.replace=替换
 nae2.pattern_multiplier.replace.desc=在所有编码样板的配置中匹配第一个槽位的物品并将其替换为第二个槽位的物品。§4该操作无法回退！§7\n\n§c红色§7表示物品已成功匹配，但替换后的样板无效。将跳过该槽位的操作。\n\n§a绿色§7表示物品已成功匹配，替换操作将正常进行。
 nae2.pattern_multiplier.tab.multiply=倍增
 nae2.pattern_multiplier.tab.replace=替换
+nae2.jei.missing.craft.2=按住 Ctrl 键来批量请求合成。
+
+nae2.jei.missing.partialcraft.1=[NAE2] 部分缺失物品可合成。
+nae2.jei.missing.partialcraft.2=按住 CTRL 键以略过/批量合成缺失物品。
+
+nae2.jei.missing.bypasscraft.1=[NAE2] 所有缺失物品均不可合成。
+nae2.jei.missing.bypasscraft.2=按住 CTRL 键以略过并尽可能多地将其回填网络。
 
 # Beam Former GUI
 nae2.part.beam_former.hide=已隐藏光束。
@@ -171,4 +178,8 @@ nae2.jei.cellview.used=占用字节：%s
 nae2.jei.cellview.hover.1=已占用 %s 种类型。
 nae2.jei.cellview.hover.2=每种占用类型均会损耗容量。
 nae2.jei.cellview.hover.3=%s 字节/类型 * %s = %s 字节损耗。
-nae2.jei.cellview.keybind=按下 %s 来浏览内容
+nae2.jei.cellview.keybind=按下 %s 来浏览内容item.nae2.part.exposer.name=ME Storage Exposer
+tile.nae2.exposer.name=ME Storage Exposer
+nae2.exposer.tooltip=Exposes the network contents as capabilities. The cooler ME Interface.
+nae2.exposer.noneregistered=No handlers registered.
+nae2.exposer.registered=Registered handlers:item.nae2.part.exposer.name=ME Storage Exposeritem.nae2.part.exposer.name=ME Storage Exposer
