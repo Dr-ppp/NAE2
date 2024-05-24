@@ -1,7 +1,7 @@
 #PARSE_ESCAPES
 
 # Meta
-itemGroup.nae2=刻晴的AE妙妙工具
+itemGroup.nae2=Neeve的AE2:EL附加工具
 
 # Items
 item.nae2.invalid.name=无效或禁用的物品
@@ -19,34 +19,24 @@ item.nae2.storage_cell_fluid_1024k.name=§61024k§r-ME流体存储元件
 item.nae2.storage_cell_fluid_4096k.name=§e4096k§r-ME流体存储元件
 item.nae2.storage_cell_fluid_16384k.name=§a16384k§r-ME流体存储元件
 
-item.nae2.single_storage_cell_256k.name=§c256k§r-ME存储元件(单种类)
-item.nae2.single_storage_cell_1024k.name=§61024k§r-ME存储元件(单种类)
-item.nae2.single_storage_cell_4096k.name=§e4096k§r-ME存储元件(单种类)
-item.nae2.single_storage_cell_16384k.name=§a16384k§r-ME存储元件(单种类)
-item.nae2.single_storage_cell_max.name=§aMAX§r-ME存储元件(单种类)
-item.nae2.single_storage_cell_fluid_256k.name=§c256k§r-ME流体存储元件(单种类)
-item.nae2.single_storage_cell_fluid_1024k.name=§61024k§r-ME流体存储元件(单种类)
-item.nae2.single_storage_cell_fluid_4096k.name=§e4096k§r-ME流体存储元件(单种类)
-item.nae2.single_storage_cell_fluid_16384k.name=§a16384k§r-ME流体存储元件(单种类)
-item.nae2.single_storage_cell_fluid_max.name=§aMAX§r-ME流体存储元件(单种类)
 # Materials
 item.nae2.material.cell_part_void.name=ME虚空存储组件
 item.nae2.material.cell_part_256k.name=§c256k§r-ME存储组件
 item.nae2.material.cell_part_1024k.name=§61024k§r-ME存储组件
 item.nae2.material.cell_part_4096k.name=§e4096k§r-ME存储组件
 item.nae2.material.cell_part_16384k.name=§a16384k§r-ME存储组件
-item.nae2.material.cell_part_max.name=§aMAX§r-ME存储组件
 item.nae2.material.cell_part_fluid_256k.name=§c256k§r-ME流体存储组件
 item.nae2.material.cell_part_fluid_1024k.name=§61024k§r-ME流体存储组件
 item.nae2.material.cell_part_fluid_4096k.name=§e4096k§r-ME流体存储组件
 item.nae2.material.cell_part_fluid_16384k.name=§a16384k§r-ME流体存储组件
-item.nae2.material.cell_part_fluid_max.name=§aMAX§r-ME流体存储组件
 
 # Parts
 item.nae2.part.beam_former.name=ME光束成型器
 
 # Upgrades
 item.nae2.upgrade.hyper_acceleration.name=超速卡
+item.nae2.upgrade.auto_complete.name=工作自动完成卡
+item.nae2.upgrade.auto_complete.desc=自动完成作业，无需等待输出。
 
 # Tiles
 tile.nae2.reconstruction_chamber.name=原子再构室
@@ -59,84 +49,6 @@ tile.nae2.storage_crafting_1024k.name=§61024k§r合成存储器
 tile.nae2.storage_crafting_4096k.name=§e4096k§r合成存储器
 tile.nae2.storage_crafting_16384k.name=§a16384k§r合成存储器
 
-item.nae2.material.multi_cell_part_1k.name=§61k§r-高性能存储组件
-item.nae2.material.multi_cell_part_4k.name=§e4k§r-高性能存储组件
-item.nae2.material.multi_cell_part_16k.name=§a16k§r-高性能存储组件
-item.nae2.material.multi_cell_part_64k.name=§b64k§r-高性能存储组件
-item.nae2.material.multi_cell_part_256k.name=§c256k§r-高性能存储组件
-item.nae2.material.multi_cell_part_1024k.name=§6512k§r-高性能存储组件
-item.nae2.material.multi_cell_part_4096k.name=§e4096k§r-高性能存储组件
-item.nae2.material.multi_cell_part_16384k.name=§a16384k§r-高性能存储组件
-
-item.nae2.material.multi_cell_part_1k.tooltip=压缩存储！
-item.nae2.material.multi_cell_part_4k.tooltip=压缩存储！
-item.nae2.material.multi_cell_part_16k.tooltip=压缩存储！
-item.nae2.material.multi_cell_part_64k.tooltip=压缩存储！
-item.nae2.material.multi_cell_part_256k.tooltip=压缩存储！
-item.nae2.material.multi_cell_part_1024k.tooltip=压缩存储！
-item.nae2.material.multi_cell_part_4096k.tooltip=压缩存储！
-item.nae2.material.multi_cell_part_16384k.tooltip=压缩存储！
-
-item.nae2.material.multi_cell_part_fluid_1k.name=§61k§r-强化流体存储组件
-item.nae2.material.multi_cell_part_fluid_4k.name=§e4k§r-强化流体存储组件
-item.nae2.material.multi_cell_part_fluid_16k.name=§a16k§r-强化流体存储组件
-item.nae2.material.multi_cell_part_fluid_64k.name=§d64k§r-强化流体存储组件
-item.nae2.material.multi_cell_part_fluid_256k.name=§c256k§r-强化流体存储组件
-item.nae2.material.multi_cell_part_fluid_1024k.name=§6512k§r-强化流体存储组件
-item.nae2.material.multi_cell_part_fluid_4096k.name=§e4096k§r-强化流体存储组件
-item.nae2.material.multi_cell_part_fluid_16384k.name=§a16384k§r-强化流体存储组件
-
-item.nae2.material.multi_cell_part_fluid_1k.tooltip=储罐山大王！
-item.nae2.material.multi_cell_part_fluid_4k.tooltip=储罐山大王！
-item.nae2.material.multi_cell_part_fluid_16k.tooltip=储罐山大王！
-item.nae2.material.multi_cell_part_fluid_64k.tooltip=储罐山大王！
-item.nae2.material.multi_cell_part_fluid_256k.tooltip=储罐山大王！
-item.nae2.material.multi_cell_part_fluid_1024k.tooltip=储罐山大王！
-item.nae2.material.multi_cell_part_fluid_4096k.tooltip=储罐山大王！
-item.nae2.material.multi_cell_part_fluid_16384k.tooltip=储罐山大王！
-
-item.nae2.multi_storage_cell_1k.name=§61k§r-高性能存储单元
-item.nae2.multi_storage_cell_4k.name=§e4k§r-高性能存储单元
-item.nae2.multi_storage_cell_16k.name=§a16k§r-高性能存储单元
-item.nae2.multi_storage_cell_64k.name=§d64k§r-高性能存储单元
-item.nae2.multi_storage_cell_256k.name=§c256k§r-高性能存储单e元
-item.nae2.multi_storage_cell_1024k.name=§6512k§r-高性能存储单元
-item.nae2.multi_storage_cell_4096k.name=§e4096k§r-高性能存储单元
-item.nae2.multi_storage_cell_16384k.name=§a16384k§r-高性能存储单元
-
-item.nae2.multi_storage_cell_1k.tooltip=一个顶俩！
-item.nae2.multi_storage_cell_4k.tooltip=一个顶俩！
-item.nae2.multi_storage_cell_16k.tooltip=一个顶俩！
-item.nae2.multi_storage_cell_64k.tooltip=一个顶俩！
-item.nae2.multi_storage_cell_256k.tooltip=一个顶俩！
-item.nae2.multi_storage_cell_1024k.tooltip=一个顶俩！
-item.nae2.multi_storage_cell_4096k.tooltip=一个顶俩！
-item.nae2.multi_storage_cell_16384k.tooltip=一个顶俩！
-
-item.nae2.multi_storage_cell_fluid_1k.name=§61k§r-强化流体存储单元
-item.nae2.multi_storage_cell_fluid_4k.name=§e4k§r-强化流体存储单元
-item.nae2.multi_storage_cell_fluid_16k.name=§a16k§r-强化流体存储单元
-item.nae2.multi_storage_cell_fluid_64k.name=§d64k§r-强化流体存储单元
-item.nae2.multi_storage_cell_fluid_256k.name=§c256k§r-强化流体存储单元
-item.nae2.multi_storage_cell_fluid_1024k.name=§6512k§r-强化流体存储单元
-item.nae2.multi_storage_cell_fluid_4096k.name=§e4096k§r-强化流体存储单元
-item.nae2.multi_storage_cell_fluid_16384k.name=§a16384k§r-强化流体存储单元
-
-item.nae2.multi_storage_cell_fluid_1k.tooltip=大号TFFT!
-item.nae2.multi_storage_cell_fluid_4k.tooltip=大号TFFT!
-item.nae2.multi_storage_cell_fluid_16k.tooltip=大号TFFT!
-item.nae2.multi_storage_cell_fluid_64k.tooltip=大号TFFT!
-item.nae2.multi_storage_cell_fluid_256k.tooltip=大号TFFT!
-item.nae2.multi_storage_cell_fluid_1024k.tooltip=大号TFFT!
-item.nae2.multi_storage_cell_fluid_4096k.tooltip=大号TFFT!
-item.nae2.multi_storage_cell_fluid_16384k.tooltip=大号TFFT!
-
-#虚空
-item.nae2.material.cell_part_singularity.name=§c§l奇点存储原件§r
-item.nae2.material.cell_fluid_part_singularity.name=§c§l奇点流体存储原件§r
-
-item.nae2.storage_cell_singularity.name=§c§l奇点存储单元§r
-item.nae2.storage_cell_fluid_singularity.name=§c§l奇点流体存储单元§r
 # Pattern Multi-Tool GUI
 nae2.pattern_multiplier.unencode=清除
 nae2.pattern_multiplier.unencode.desc=清除所有编码样板的配置。该操作无法回退！
@@ -144,6 +56,7 @@ nae2.pattern_multiplier.replace=替换
 nae2.pattern_multiplier.replace.desc=在所有编码样板的配置中匹配第一个槽位的物品并将其替换为第二个槽位的物品。§4该操作无法回退！§7\n\n§c红色§7表示物品已成功匹配，但替换后的样板无效。将跳过该槽位的操作。\n\n§a绿色§7表示物品已成功匹配，替换操作将正常进行。
 nae2.pattern_multiplier.tab.multiply=倍增
 nae2.pattern_multiplier.tab.replace=替换
+
 # Beam Former GUI
 nae2.part.beam_former.hide=已隐藏光束。
 nae2.part.beam_former.show=已显示光束。
@@ -154,14 +67,14 @@ nae2.storage_cell_void.warning.2=如不清楚预计的后果，请先在%s中进
 nae2.storage_cell_void.count=已存储%s %s能量。
 
 # JEI Ctrl-Craft GUI
-nae2.jei.missing.craft.1=[抱歉喵] 所有缺失物品均可合成。
+nae2.jei.missing.craft.1=[NAE2] 所有缺失物品均可合成。
 nae2.jei.missing.craft.2=按住 Ctrl 来批量请求合成。
 
-nae2.jei.missing.partialcraft.1=[抱歉喵] 部分缺失物品可合成。
-nae2.jei.missing.partialcraft.2=按住 CTRL 键以略过/批量合成缺失物品。
+nae2.jei.missing.partialcraft.1=[NAE2] Some items found craftable.
+nae2.jei.missing.partialcraft.2=Hold Ctrl to bypass and mass-order missing items.
 
-nae2.jei.missing.bypasscraft.1=[抱歉喵] 所有缺失物品均不可合成。
-nae2.jei.missing.bypasscraft.2=按住 CTRL 键以略过并尽可能多地将其回填网络。
+nae2.jei.missing.bypasscraft.1=[NAE2] No items found craftable.
+nae2.jei.missing.bypasscraft.2=Hold Ctrl to bypass and fill the grid as much as possible.
 
 nae2.jei.cellview.items=物品
 nae2.jei.cellview.buckets=桶
@@ -176,8 +89,4 @@ nae2.jei.cellview.used=占用字节：%s
 nae2.jei.cellview.hover.1=已占用 %s 种类型。
 nae2.jei.cellview.hover.2=每种占用类型均会损耗容量。
 nae2.jei.cellview.hover.3=%s 字节/类型 * %s = %s 字节损耗。
-nae2.jei.cellview.keybind=按下 %s 来浏览内容item.nae2.part.exposer.name=ME Storage Exposer
-tile.nae2.exposer.name=ME Storage Exposer
-nae2.exposer.tooltip=Exposes the network contents as capabilities. The cooler ME Interface.
-nae2.exposer.noneregistered=No handlers registered.
-nae2.exposer.registered=Registered handlers:item.nae2.part.exposer.name=ME Storage Exposeritem.nae2.part.exposer.name=ME Storage Exposer
+nae2.jei.cellview.keybind=按下 %s 来浏览内容

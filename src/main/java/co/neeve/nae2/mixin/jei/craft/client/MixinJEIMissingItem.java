@@ -30,7 +30,6 @@ public class MixinJEIMissingItem {
 	@Shadow
 	private boolean errored;
 
-
 	@SuppressWarnings("deprecation")
 	@Inject(method = "showError", at = @At(
 		value = "INVOKE",
@@ -41,19 +40,11 @@ public class MixinJEIMissingItem {
 	                      @Local(name = "foundAnyCraftable") boolean foundAnyCraftable,
 	                      @Local(name = "tooltipLines") List<String> tooltipLines,
 	                      @Local(name = "b") RecipeTransferButton b) {
-		if (!this.errored)
-			return;
+		if (!this.errored) return;
 
 		var inCount = recipeLayout.getItemStacks().getGuiIngredients().values().stream()
-				.map(iGuiIngredient -> iGuiIngredient.isInput() && !iGuiIngredient.getAllIngredients().isEmpty() ? 1 : 0)
-				.reduce(0, Integer::sum);
-
-		//if (foundAnyCraftable && this.craftableSlots.size() + this.foundSlots.size() == inCount) {
-		//	tooltipLines.add("");
-		//	tooltipLines.add(I18n.translateToLocal("nae2.jei.missing.craft.1"));
-		//	tooltipLines.add(I18n.translateToLocal("nae2.jei.missing.craft.2"));
-		//	b.enabled = GuiScreen.isCtrlKeyDown();
-		//}
+			.map(iGuiIngredient -> iGuiIngredient.isInput() && !iGuiIngredient.getAllIngredients().isEmpty() ? 1 : 0)
+			.reduce(0, Integer::sum);
 
 		tooltipLines.add("");
 		if (foundAnyCraftable) {
@@ -67,8 +58,8 @@ public class MixinJEIMissingItem {
 		} else {
 			tooltipLines.add(I18n.translateToLocal("nae2.jei.missing.bypasscraft.1"));
 			tooltipLines.add(I18n.translateToLocal("nae2.jei.missing.bypasscraft.2"));
-
 		}
+
 		b.enabled = GuiScreen.isCtrlKeyDown();
 	}
 }

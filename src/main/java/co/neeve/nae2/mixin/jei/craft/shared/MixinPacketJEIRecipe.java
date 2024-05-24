@@ -1,4 +1,5 @@
 package co.neeve.nae2.mixin.jei.craft.shared;
+
 import appeng.api.networking.IGrid;
 import appeng.api.networking.crafting.ICraftingGrid;
 import appeng.api.networking.crafting.ICraftingJob;
@@ -63,7 +64,7 @@ public class MixinPacketJEIRecipe {
 	 */
 	@Unique
 	private static <T extends ItemStack> Object2IntMap<T> findOptimalIngredients(List<Set<T>> recipe,
-																				 Hash.Strategy<T> strategy) {
+	                                                                             Hash.Strategy<T> strategy) {
 		Object2IntMap<T> bestIngredients = new Object2IntOpenCustomHashMap<>(strategy);
 		var bestIngredientCount = new int[]{ Integer.MAX_VALUE };
 		backtrack(new Object2IntOpenCustomHashMap<>(strategy), recipe, 0, bestIngredients, bestIngredientCount);
@@ -81,7 +82,7 @@ public class MixinPacketJEIRecipe {
 	 */
 	@Unique
 	private static <T> void backtrack(Object2IntMap<T> currentIngredients, List<Set<T>> recipe,
-									  int recipeIndex, Object2IntMap<T> bestIngredients, int[] bestIngredientCount) {
+	                                  int recipeIndex, Object2IntMap<T> bestIngredients, int[] bestIngredientCount) {
 		if (recipeIndex == recipe.size()) {
 			var currentIngredientCount = currentIngredients.size();
 			if (currentIngredientCount < bestIngredientCount[0]) {
@@ -105,9 +106,9 @@ public class MixinPacketJEIRecipe {
 	}
 
 	@Inject(method = "<init>(Lio/netty/buffer/ByteBuf;)V", at = @At(
-			value = "INVOKE",
-			target = "Lnet/minecraft/nbt/NBTTagCompound;getKeySet()Ljava/util/Set;",
-			remap = true
+		value = "INVOKE",
+		target = "Lnet/minecraft/nbt/NBTTagCompound;getKeySet()Ljava/util/Set;",
+		remap = true
 	))
 	private void ctor(ByteBuf stream, CallbackInfo ci, @Local NBTTagCompound comp) {
 		if (comp == null) return;
@@ -117,15 +118,15 @@ public class MixinPacketJEIRecipe {
 	}
 
 	@Inject(method = "serverPacketData", at = @At(
-			value = "INVOKE",
-			target = "Lnet/minecraft/inventory/Container;onCraftMatrixChanged(Lnet/minecraft/inventory/IInventory;)V",
-			remap = true
+		value = "INVOKE",
+		target = "Lnet/minecraft/inventory/Container;onCraftMatrixChanged(Lnet/minecraft/inventory/IInventory;)V",
+		remap = true
 	))
 	public void serverPacketData(INetworkInfo manager, AppEngPacket packet, EntityPlayer player, CallbackInfo ci,
-								 @Local(name = "craftMatrix") IItemHandler craftMatrix,
-								 @Local ICraftingGrid crafting,
-								 @Local IGrid grid,
-								 @Local IContainerCraftingPacket cct) {
+	                             @Local(name = "craftMatrix") IItemHandler craftMatrix,
+	                             @Local ICraftingGrid crafting,
+	                             @Local IGrid grid,
+	                             @Local IContainerCraftingPacket cct) {
 		// Not asked. No do.
 		if (!this.nae2$craft) return;
 
@@ -136,11 +137,11 @@ public class MixinPacketJEIRecipe {
 		final var context = ((AEBaseContainer) cct).getOpenContext();
 		if (context == null) return;
 
-		//  Not a crafting matchingRecipe. No do.
+		// Not a crafting matchingRecipe. No do.
 		if (this.output.size() != 1) return;
 		if (craftMatrix.getSlots() != 9) return;
 
-		//  Huh? No output?
+		// Huh? No output?
 		var outputIS = this.output.get(0);
 		if (outputIS == null) return;
 		if (outputIS.isEmpty()) return;
@@ -150,15 +151,12 @@ public class MixinPacketJEIRecipe {
 		// Invalid output stack. No do.
 		if (outputAIS == null) return;
 
-		//final var context = ((AEBaseContainer) cct).getOpenContext();
-		//if (context == null) return;
-
-		//  Verify the validity of the recipe. We can be sent anything after all!
+		// Verify the validity of the recipe. We can be sent anything after all!
 		var testFrame = new InventoryCrafting(new ContainerNull(), 3, 3);
 		for (var i = 0; i < craftMatrix.getSlots(); i++) {
 			final var slotID = i;
 			Arrays.stream(this.recipe.get(i)).findFirst().ifPresent((itemStack ->
-					testFrame.setInventorySlotContents(slotID, itemStack)));
+				testFrame.setInventorySlotContents(slotID, itemStack)));
 		}
 
 		var matchingRecipe = CraftingManager.findMatchingRecipe(testFrame, player.world);
@@ -177,10 +175,10 @@ public class MixinPacketJEIRecipe {
 				var stacksInRecipeSlot = this.recipe.get(i);
 				for (var stackInRecipeSlot : stacksInRecipeSlot) {
 					if (!stackInRecipeSlot.isEmpty() &&
-							crafting.getCraftingFor(AEItemStack.fromItemStack(stackInRecipeSlot),
-									null,
-									0,
-									null).size() > 0) {
+						crafting.getCraftingFor(AEItemStack.fromItemStack(stackInRecipeSlot),
+							null,
+							0,
+							null).size() > 0) {
 						recipe.add(stackInRecipeSlot);
 					}
 				}
@@ -196,21 +194,21 @@ public class MixinPacketJEIRecipe {
 		// items while maximizing the stack size.
 		// Upcast to AEItemStacks. Nothing should be null here, but who knows what AE2 may do.
 		var optimal = findOptimalIngredients(missingItems, strategy)
-				.entrySet().stream()
-				.map(entry -> Objects.requireNonNull(AEItemStack.fromItemStack(entry.getKey()))
-						.setStackSize(entry.getValue()))
-				.collect(Collectors.toList());
+			.entrySet().stream()
+			.map(entry -> Objects.requireNonNull(AEItemStack.fromItemStack(entry.getKey()))
+				.setStackSize(entry.getValue()))
+			.collect(Collectors.toList());
 
 		// Create a Virtual Pattern, despite AE2 telling us not to.
 		var pattern = new VirtualPatternDetails(optimal,
-				this.output.stream().map(AEItemStack::fromItemStack).collect(Collectors.toList()));
+			this.output.stream().map(AEItemStack::fromItemStack).collect(Collectors.toList()));
 
 		// Try firing the crafting job.
 		Future<ICraftingJob> futureJob = null;
 		try {
 			final ICraftingGrid cg = grid.getCache(ICraftingGrid.class);
 			futureJob = ((IExtendedCraftingGridCache) cg).beginCraftingJobFromDetails(player.world, grid,
-					cct.getActionSource(), outputAIS, pattern, null);
+				cct.getActionSource(), outputAIS, pattern, null);
 
 			final var te = context.getTile();
 			if (te != null) {
@@ -218,7 +216,7 @@ public class MixinPacketJEIRecipe {
 			} else {
 				if (player.openContainer instanceof IInventorySlotAware i) {
 					Platform.openGUI(player, i.getInventorySlot(), GuiBridge.GUI_CRAFTING_CONFIRM,
-							i.isBaubleSlot());
+						i.isBaubleSlot());
 				}
 			}
 
@@ -236,4 +234,3 @@ public class MixinPacketJEIRecipe {
 		}
 	}
 }
-

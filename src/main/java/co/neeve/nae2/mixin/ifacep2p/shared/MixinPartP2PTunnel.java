@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+
 @Mixin(PartP2PTunnel.class)
 public class MixinPartP2PTunnel {
 	@ModifyVariable(method = "onPartActivate", at = @At(value = "LOAD"), name = "newType", remap = false)
@@ -20,10 +21,7 @@ public class MixinPartP2PTunnel {
 
 			var iface = definitions.blocks().iface().maybeStack(1);
 			var ifacePart = definitions.parts().iface().maybeStack(1);
-
-			//if ((iface.isPresent() && item.equals(iface.get().getItem()))
-			//	|| (ifacePart.isPresent() && item.equals(ifacePart.get().getItem()))) {
-			if ((iface.isPresent() && hand.isItemEqual(iface.get()))
+			if ((iface.isPresent() && hand.isItemEqual(iface.get())) 
 					|| (ifacePart.isPresent() && hand.isItemEqual(ifacePart.get()))) {
 				return NAE2.definitions().parts().p2pTunnelInterface().maybeStack(1).orElse(ItemStack.EMPTY);
 			}
@@ -32,4 +30,3 @@ public class MixinPartP2PTunnel {
 		return newType;
 	}
 }
-
