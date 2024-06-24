@@ -5,9 +5,9 @@ import appeng.api.parts.IPartHost;
 import appeng.helpers.DualityInterface;
 import appeng.helpers.IInterfaceHost;
 import appeng.util.Platform;
-import co.neeve.nae2.common.integration.ae2fc.AE2FCIntegrationHelper;
+import co.neeve.nae2.common.integration.ae2fc.AE2FCInterfaceHelper;
 import co.neeve.nae2.common.parts.p2p.PartP2PInterface;
-import com.google.common.collect.Streams;
+import com.google.common.collect.Lists;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -28,8 +28,6 @@ import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 /**
  * isBusy stuff.
@@ -83,8 +81,8 @@ public abstract class MixinBlockingTermName {
 					interfaceHost = null;
 				}
 
-				AE2FCIntegrationHelper.setEnumFacingOverride(this.nae2$originalFacing.getOpposite());
-				AE2FCIntegrationHelper.setInterfaceOverride(
+				AE2FCInterfaceHelper.setEnumFacingOverride(this.nae2$originalFacing.getOpposite());
+				AE2FCInterfaceHelper.setInterfaceOverride(
 					interfaceHost != null ? interfaceHost.getTileEntity() : null);
 			}
 			return pair.getRight();
@@ -96,31 +94,29 @@ public abstract class MixinBlockingTermName {
 
 		// Is the entity an input tunnel?
 		if (te instanceof IPartHost ph && ph.getPart(facing.getOpposite()) instanceof PartP2PInterface tunnel && !tunnel.isOutput()) {
-			var outputs = tunnel.getOutputs();
+			var outputs = Lists.newLinkedList(tunnel.getCachedOutputsRecursive());
+			if (!outputs.isEmpty()) {
+				var outputTiles = new LinkedList<Pair<EnumFacing, TileEntity>>();
+				for (var output : outputs) {
+					if (output.hasItemsToSend()) continue;
 
-			if (outputs != null) {
-				var outputTiles = Streams.stream(outputs)
-					.filter(x -> !x.hasItemsToSend())
-					.map((output) -> {
-						var outputTile = output.getFacingTileEntity().orElse(null);
-						return outputTile == null ? null : Pair.of(output.getSide().getFacing(), outputTile);
-					})
-					.filter(Objects::nonNull)
-					.collect(Collectors.toCollection(LinkedList::new));
+					var outputTile = output.getFacingTileEntity();
+					if (outputTile == null)
+						continue;
 
-				// Sure it is, and we have TEs. Let the other part of this method know we're iterating them next.
-				if (!outputTiles.isEmpty()) {
-					this.nae2$originalFacing = tunnel.getSide().getFacing().getOpposite();
-					tunnelTEs.set(outputTiles);
+					outputTiles.add(Pair.of(output.getSide().getFacing(), outputTile));
 				}
+
+				this.nae2$originalFacing = tunnel.getSide().getFacing().getOpposite();
+				tunnelTEs.set(outputTiles);
 			}
 
 			return null; // Skip. :)
 		}
 
 		if (Platform.isModLoaded("ae2fc")) {
-			AE2FCIntegrationHelper.setEnumFacingOverride(null);
-			AE2FCIntegrationHelper.setInterfaceOverride(null);
+			AE2FCInterfaceHelper.setEnumFacingOverride(null);
+			AE2FCInterfaceHelper.setInterfaceOverride(null);
 		}
 		return te;
 	}

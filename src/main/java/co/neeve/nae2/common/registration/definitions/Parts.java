@@ -1,7 +1,10 @@
 package co.neeve.nae2.common.registration.definitions;
 
 import appeng.api.AEApi;
+import appeng.api.config.TunnelType;
 import appeng.api.parts.IPart;
+import appeng.bootstrap.components.IPostInitComponent;
+import appeng.core.Api;
 import appeng.core.features.DamagedItemDefinition;
 import appeng.core.localization.GuiText;
 import appeng.util.Platform;
@@ -12,6 +15,7 @@ import co.neeve.nae2.common.items.NAEBaseItemPart;
 import co.neeve.nae2.common.parts.implementations.PartBeamFormer;
 import co.neeve.nae2.common.parts.implementations.PartExposer;
 import co.neeve.nae2.common.parts.p2p.PartP2PInterface;
+import co.neeve.nae2.common.parts.p2p.iface.InterfaceTunnelGridCache;
 import co.neeve.nae2.common.registration.registry.Registry;
 import co.neeve.nae2.common.registration.registry.helpers.PartModelsHelper;
 import co.neeve.nae2.common.registration.registry.interfaces.Definitions;
@@ -54,7 +58,28 @@ public class Parts implements Definitions<DamagedItemDefinition> {
 
 		this.beamFormer = this.createPart(this.itemPart, PartType.BEAM_FORMER);
 		this.p2pTunnelInterface = this.createPart(this.itemPart, PartType.P2P_TUNNEL_INTERFACE);
+		this.p2pTunnelInterface.maybeStack(1)
+			.ifPresent((tunnelStack) -> registry.addBootstrapComponent((IPostInitComponent) (r) -> {
+				AEApi.instance().registries().gridCache()
+					.registerGridCache(InterfaceTunnelGridCache.class, InterfaceTunnelGridCache.class);
+
+				var tunnelType = AEApi.instance().registries().p2pTunnel()
+					.registerTunnelType("NAE2_IFACE_P2P", tunnelStack);
+
+				var definitions = Api.INSTANCE.definitions();
+
+				definitions.blocks().iface().maybeStack(1)
+					.ifPresent((stack) -> registerTunnelConversion(tunnelType, stack));
+
+				definitions.parts().iface().maybeStack(1)
+					.ifPresent((stack) -> registerTunnelConversion(tunnelType, stack));
+			}));
+
 		this.exposer = this.createPart(this.itemPart, PartType.EXPOSER);
+	}
+
+	private static void registerTunnelConversion(TunnelType tunnelType, ItemStack stack) {
+		AEApi.instance().registries().p2pTunnel().addNewAttunement(stack, tunnelType);
 	}
 
 	public static Optional<PartType> getById(int itemDamage) {

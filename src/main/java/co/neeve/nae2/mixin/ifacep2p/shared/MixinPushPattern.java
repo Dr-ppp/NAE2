@@ -5,9 +5,9 @@ import appeng.api.parts.IPartHost;
 import appeng.helpers.DualityInterface;
 import appeng.helpers.IInterfaceHost;
 import appeng.util.Platform;
-import co.neeve.nae2.common.integration.ae2fc.AE2FCIntegrationHelper;
+import co.neeve.nae2.common.integration.ae2fc.AE2FCInterfaceHelper;
 import co.neeve.nae2.common.parts.p2p.PartP2PInterface;
-import com.google.common.collect.Streams;
+import com.google.common.collect.Lists;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -28,7 +28,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.stream.Collectors;
 
 /**
  * PushPattern stuff.
@@ -87,7 +86,6 @@ public abstract class MixinPushPattern {
 		}
 	}
 
-	@SuppressWarnings("UnstableApiUsage")
 	@WrapOperation(
 		method = "pushPattern",
 		at = @At(
@@ -146,12 +144,12 @@ public abstract class MixinPushPattern {
 					interfaceHost = null;
 				}
 
-				AE2FCIntegrationHelper.setEnumFacingOverride(originalFacing.getOpposite());
-				AE2FCIntegrationHelper.setInterfaceOverride(
+				AE2FCInterfaceHelper.setEnumFacingOverride(originalFacing.getOpposite());
+				AE2FCInterfaceHelper.setInterfaceOverride(
 					interfaceHost != null ? interfaceHost.getTileEntity() : null);
 			}
 
-			return tunnel.getFacingTileEntity().orElse(null);
+			return tunnel.getFacingTileEntity();
 		}
 
 		// Fetch entity using the original method. Get current facing.
@@ -160,25 +158,20 @@ public abstract class MixinPushPattern {
 
 		// Is the entity an input tunnel?
 		if (te instanceof IPartHost ph && ph.getPart(facing.getOpposite()) instanceof PartP2PInterface inputTunnel && !inputTunnel.isOutput()) {
-			var outputs = inputTunnel.getOutputs();
-			if (outputs != null) {
-				var outputTunnels = Streams.stream(outputs)
-					.collect(Collectors.toCollection(LinkedList::new));
-
+			var outputs = Lists.newLinkedList(inputTunnel.getCachedOutputsRecursive());
+			if (!outputs.isEmpty()) {
 				// Sure it is, and we have TEs. Let the other part of this method know we're iterating them next.
-				if (!outputTunnels.isEmpty()) {
-					this.nae2$tunnelsToVisit = outputTunnels;
-					this.nae2$originalFacing = facing;
-					this.nae2$inputTunnel = inputTunnel;
-				}
+				this.nae2$tunnelsToVisit = outputs;
+				this.nae2$originalFacing = facing;
+				this.nae2$inputTunnel = inputTunnel;
 			}
 
 			return null; // Skip. :)
 		}
 
 		if (Platform.isModLoaded("ae2fc")) {
-			AE2FCIntegrationHelper.setEnumFacingOverride(null);
-			AE2FCIntegrationHelper.setInterfaceOverride(null);
+			AE2FCInterfaceHelper.setEnumFacingOverride(null);
+			AE2FCInterfaceHelper.setInterfaceOverride(null);
 		}
 
 		currentOutputTunnel.set(null);
