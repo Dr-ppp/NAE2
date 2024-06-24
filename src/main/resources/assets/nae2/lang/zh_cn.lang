@@ -60,15 +60,6 @@ item.nae2.material.multi_cell_part_1024k.name=§6512k§r-高性能存储组件
 item.nae2.material.multi_cell_part_4096k.name=§e4096k§r-高性能存储组件
 item.nae2.material.multi_cell_part_16384k.name=§a16384k§r-高性能存储组件
 
-item.nae2.material.multi_cell_part_1k.tooltip=压缩存储！
-item.nae2.material.multi_cell_part_4k.tooltip=压缩存储！
-item.nae2.material.multi_cell_part_16k.tooltip=压缩存储！
-item.nae2.material.multi_cell_part_64k.tooltip=压缩存储！
-item.nae2.material.multi_cell_part_256k.tooltip=压缩存储！
-item.nae2.material.multi_cell_part_1024k.tooltip=压缩存储！
-item.nae2.material.multi_cell_part_4096k.tooltip=压缩存储！
-item.nae2.material.multi_cell_part_16384k.tooltip=压缩存储！
-
 item.nae2.material.multi_cell_part_fluid_1k.name=§61k§r-强化流体存储组件
 item.nae2.material.multi_cell_part_fluid_4k.name=§e4k§r-强化流体存储组件
 item.nae2.material.multi_cell_part_fluid_16k.name=§a16k§r-强化流体存储组件
@@ -77,15 +68,6 @@ item.nae2.material.multi_cell_part_fluid_256k.name=§c256k§r-强化流体存储
 item.nae2.material.multi_cell_part_fluid_1024k.name=§6512k§r-强化流体存储组件
 item.nae2.material.multi_cell_part_fluid_4096k.name=§e4096k§r-强化流体存储组件
 item.nae2.material.multi_cell_part_fluid_16384k.name=§a16384k§r-强化流体存储组件
-
-item.nae2.material.multi_cell_part_fluid_1k.tooltip=储罐山大王！
-item.nae2.material.multi_cell_part_fluid_4k.tooltip=储罐山大王！
-item.nae2.material.multi_cell_part_fluid_16k.tooltip=储罐山大王！
-item.nae2.material.multi_cell_part_fluid_64k.tooltip=储罐山大王！
-item.nae2.material.multi_cell_part_fluid_256k.tooltip=储罐山大王！
-item.nae2.material.multi_cell_part_fluid_1024k.tooltip=储罐山大王！
-item.nae2.material.multi_cell_part_fluid_4096k.tooltip=储罐山大王！
-item.nae2.material.multi_cell_part_fluid_16384k.tooltip=储罐山大王！
 
 item.nae2.multi_storage_cell_1k.name=§61k§r-高性能存储单元
 item.nae2.multi_storage_cell_4k.name=§e4k§r-高性能存储单元
@@ -96,14 +78,17 @@ item.nae2.multi_storage_cell_1024k.name=§6512k§r-高性能存储单元
 item.nae2.multi_storage_cell_4096k.name=§e4096k§r-高性能存储单元
 item.nae2.multi_storage_cell_16384k.name=§a16384k§r-高性能存储单元
 
-item.nae2.multi_storage_cell_1k.tooltip=一个顶俩！
-item.nae2.multi_storage_cell_4k.tooltip=一个顶俩！
-item.nae2.multi_storage_cell_16k.tooltip=一个顶俩！
-item.nae2.multi_storage_cell_64k.tooltip=一个顶俩！
-item.nae2.multi_storage_cell_256k.tooltip=一个顶俩！
-item.nae2.multi_storage_cell_1024k.tooltip=一个顶俩！
-item.nae2.multi_storage_cell_4096k.tooltip=一个顶俩！
-item.nae2.multi_storage_cell_16384k.tooltip=一个顶俩！
+item.nae2.single_storage_cell_256k.name=§6256k§r-高性能单种类存储单元
+item.nae2.single_storage_cell_1024k.name=§e1024k§r-高性能单种类存储单元
+item.nae2.single_storage_cell_4096k.name=§a4096k§r-高性能单种类存储单元
+item.nae2.single_storage_cell_16384k.name=§d16384k§r-高性能单种类存储单元
+item.nae2.single_storage_cell_max.name=§cMAX§r-高性能单种类存储单元
+
+item.nae2.single_storage_cell_fluid_256k.name=§6256k§r-高性能流体单种类存储单元
+item.nae2.single_storage_cell_fluid_1024k.name=§e1024k§r-高性能流体单种类存储单元
+item.nae2.single_storage_cell_fluid_4096k.name=§a4096k§r-高性能流体单种类存储单元
+item.nae2.single_storage_cell_fluid_16384k.name=§d16384k§r-高性能流体单种类存储单元
+item.nae2.single_storage_cell_fluid_max.name=§cMAX§r-高性能流体单种类存储单元
 
 item.nae2.multi_storage_cell_fluid_1k.name=§61k§r-强化流体存储单元
 item.nae2.multi_storage_cell_fluid_4k.name=§e4k§r-强化流体存储单元
@@ -113,15 +98,6 @@ item.nae2.multi_storage_cell_fluid_256k.name=§c256k§r-强化流体存储单元
 item.nae2.multi_storage_cell_fluid_1024k.name=§6512k§r-强化流体存储单元
 item.nae2.multi_storage_cell_fluid_4096k.name=§e4096k§r-强化流体存储单元
 item.nae2.multi_storage_cell_fluid_16384k.name=§a16384k§r-强化流体存储单元
-
-item.nae2.multi_storage_cell_fluid_1k.tooltip=大号TFFT!
-item.nae2.multi_storage_cell_fluid_4k.tooltip=大号TFFT!
-item.nae2.multi_storage_cell_fluid_16k.tooltip=大号TFFT!
-item.nae2.multi_storage_cell_fluid_64k.tooltip=大号TFFT!
-item.nae2.multi_storage_cell_fluid_256k.tooltip=大号TFFT!
-item.nae2.multi_storage_cell_fluid_1024k.tooltip=大号TFFT!
-item.nae2.multi_storage_cell_fluid_4096k.tooltip=大号TFFT!
-item.nae2.multi_storage_cell_fluid_16384k.tooltip=大号TFFT!
 
 #虚空
 item.nae2.material.cell_part_singularity.name=§c§l奇点存储原件§r
